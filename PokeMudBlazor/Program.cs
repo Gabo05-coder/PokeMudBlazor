@@ -1,9 +1,9 @@
 using MudBlazor.Services;
-using PokeMudBlazor.Client.Pages;
 using PokeMudBlazor.Components;
 using PokeMudBlazor.Service;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add MudBlazor services
 builder.Services.AddMudServices();
@@ -14,9 +14,10 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddSingleton<PokemonService>(); //importar servicio
+builder.Services.AddControllers();
 
 var app = builder.Build();
-
+app.UseRouting();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -40,4 +41,11 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(PokeMudBlazor.Client._Imports).Assembly);
 
+
+app.MapControllers();
+
 app.Run();
+
+
+
+
