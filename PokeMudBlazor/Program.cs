@@ -1,6 +1,7 @@
 using MudBlazor.Services;
 using PokeMudBlazor.Client.Pages;
 using PokeMudBlazor.Components;
+using PokeMudBlazor.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddMudServices();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddSingleton<PokemonService>(); //importar servicio
 
 var app = builder.Build();
 

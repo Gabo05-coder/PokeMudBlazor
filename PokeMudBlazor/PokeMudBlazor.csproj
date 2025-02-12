@@ -8,8 +8,10 @@
 
 
   <ItemGroup>
+    <PackageReference Include="RestSharp" Version="112.1.1-alpha.0.4" />
     <ProjectReference Include="..\PokeMudBlazor.Client\PokeMudBlazor.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.*" />
+    <ProjectReference Include="..\SharedModels\SharedModels.csproj" />
   </ItemGroup>
 
 </Project>

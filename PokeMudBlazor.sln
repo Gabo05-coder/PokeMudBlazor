@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeMudBlazor", "PokeMudBla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeMudBlazor.Client", "PokeMudBlazor.Client\PokeMudBlazor.Client.csproj", "{E17BE402-84EE-4A18-910E-F25DC83A018A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "SharedModels\SharedModels.csproj", "{5E541178-3ECB-4519-935A-4238DE7F6CDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E17BE402-84EE-4A18-910E-F25DC83A018A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E17BE402-84EE-4A18-910E-F25DC83A018A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E17BE402-84EE-4A18-910E-F25DC83A018A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E541178-3ECB-4519-935A-4238DE7F6CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E541178-3ECB-4519-935A-4238DE7F6CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E541178-3ECB-4519-935A-4238DE7F6CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E541178-3ECB-4519-935A-4238DE7F6CDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
