@@ -1,28 +1,28 @@
-﻿using SharedModels;
-using System.Net.Http.Json;
+﻿using RestSharp;
+using SharedModels;
 
 namespace PokeMudBlazor.Client.Services
 {
     public class PokemonApiService
     {
-        private readonly HttpClient _httpClient;
+        private readonly RestClient _client;
 
-        public PokemonApiService(HttpClient httpClient)
+        public PokemonApiService()
         {
-            _httpClient = httpClient;
+            _client = new RestClient("https://localhost:7019/api/pokemon/");
         }
 
         public async Task<List<Pokemon>> GetPokemonsAsync(int count = 4)
         {
-            try
+            var request = new RestRequest($"pokemons?count={count}", Method.Get);
+            var response = await _client.ExecuteAsync<List<Pokemon>>(request);
+
+            if (response.IsSuccessful)
             {
-                // Llama al endpoint del servidor
-                var pokemons = await _httpClient.GetFromJsonAsync<List<Pokemon>>($"api/pokemon/pokemons?count={count}");
-                return pokemons ?? new List<Pokemon>();
+                return response.Data;
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine($"Error al obtener pokemons: {ex.Message}");
                 return new List<Pokemon>();
             }
         }

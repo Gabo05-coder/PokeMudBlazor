@@ -1,4 +1,5 @@
 using MudBlazor.Services;
+using PokeMudBlazor.Client.Services;
 using PokeMudBlazor.Components;
 using PokeMudBlazor.Service;
 
@@ -12,7 +13,7 @@ builder.Services.AddMudServices();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
-
+builder.Services.AddScoped<PokemonApiService>();  // Registro del servicio
 builder.Services.AddSingleton<PokemonService>(); //importar servicio
 builder.Services.AddControllers();
 
