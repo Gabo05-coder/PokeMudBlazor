@@ -10,13 +10,17 @@
 }
 else
 {
-    <ul>
+    <MudGrid Spacing="3">
         @foreach (var pokemon in pokemons)
         {
-            <img src="@pokemon.Sprites.FrontDefault" alt="@pokemon.Name" style="width: 150px; height: 150px;" />
-            <li>@pokemon.Name</li>
+            <MudItem xs="12" sm="6" md="4" lg="3">
+                <MudPaper Class="pa-3 text-center" Elevation="4">
+                    <img src="@pokemon.Sprites.FrontDefault" alt="@pokemon.Name" style="width: 150px; height: 150px;" />
+                    <h4>@pokemon.Name</h4>
+                </MudPaper>
+            </MudItem>
         }
-    </ul>
+    </MudGrid>
 }
 
 @code {
@@ -28,4 +32,3 @@ else
         pokemons = await PokemonApiService.GetPokemonsAsync();
     }
 }
-
