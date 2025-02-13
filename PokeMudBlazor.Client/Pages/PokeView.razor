@@ -13,7 +13,7 @@ else
     <ul>
         @foreach (var pokemon in pokemons)
         {
-            <li>@pokemon.Sprites</li>
+            <img src="@pokemon.Sprites.FrontDefault" alt="@pokemon.Name" style="width: 150px; height: 150px;" />
             <li>@pokemon.Name</li>
         }
     </ul>
