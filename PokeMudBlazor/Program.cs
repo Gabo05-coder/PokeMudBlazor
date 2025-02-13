@@ -17,6 +17,9 @@ builder.Services.AddSingleton<PokemonService>(); //importar servicio
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.UseCors("AllowBlazorClient"); // Usa la política de CORS
+
 app.UseRouting();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -41,8 +44,11 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(PokeMudBlazor.Client._Imports).Assembly);
 
-
 app.MapControllers();
+
+app.UseRouting(); 
+
+app.UseAuthorization();
 
 app.Run();
 

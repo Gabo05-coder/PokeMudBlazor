@@ -1,3 +1,31 @@
 ﻿@page "/poke"
+@using SharedModels
+@inject Services.PokemonApiService PokemonApiService
 
-<h1>aA</h1>
+<h3>Pokémons Obtenidos del Servidor</h3>
+
+@if (pokemons == null || pokemons.Count == 0)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <ul>
+        @foreach (var pokemon in pokemons)
+        {
+            <li>@pokemon.Name</li>
+            <li>@pokemon.Sprites</li>
+        }
+    </ul>
+}
+
+@code {
+    private List<Pokemon> pokemons = new List<Pokemon>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Llama al servicio para obtener la lista de pokemons
+        pokemons = await PokemonApiService.GetPokemonsAsync();
+    }
+}
+
